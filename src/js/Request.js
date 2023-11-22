@@ -1,11 +1,14 @@
 import { ref } from 'vue'
 import config from '../../SuggestAddressConfig.json'
-import {errorList} from './ErrorList.js'
+import { errorList } from './ErrorList.js'
 
 export const items = ref(new Array());
 export const error = ref('');
 
 export async function sendRequest(query) {
+    items.value = [];
+    error.value = '';
+
     let url = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address";
 
     let options = {
