@@ -1,5 +1,4 @@
 import { ref } from 'vue'
-import config from '../../SuggestAddressConfig.json'
 import { errorList } from './ErrorList.js'
 
 export const items = ref(new Array());
@@ -17,7 +16,7 @@ export async function sendRequest(query) {
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json",
-            "Authorization": "Token " + config.authenticationToken
+            "Authorization": "Token " + import.meta.env.VITE_API_KEY
         },
         body: JSON.stringify({ query: query })
     };
